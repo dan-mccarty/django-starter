@@ -1,0 +1,14 @@
+[Unit]
+Description=GitHub Webhook Listener
+After=network.target
+
+[Service]
+User=prod_user
+ExecStart=/usr/bin/webhook \
+  -hooks /home/prod_user/DocuPath/infra/hooks.json \
+  -port 9000 \
+  -verbose
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

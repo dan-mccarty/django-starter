@@ -1,0 +1,96 @@
+# -----------------------
+# Python / Django
+# -----------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.so
+
+# Virtual environment
+venv/
+env/
+ENV/
+.venv/
+
+# Django stuff
+*.log
+*.pot
+*.pyc
+db.sqlite3
+db.sqlite3-journal
+
+# Static & media
+staticfiles/
+mediafiles/
+
+# Local environment variables
+.env
+*.env
+.env.*
+
+# IDE settings
+.vscode/
+.idea/
+*.iml
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Compiled assets / caches
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+pip-wheel-metadata/
+__pycache__/
+
+# Coverage / testing
+htmlcov/
+.coverage
+.coverage.*
+.cache
+pytest_cache/
+nosetests.xml
+coverage.xml
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.bak
+*.swp
+*.swo
+*~
+
+# Gunicorn / PID files
+gunicorn.pid
+gunicorn.sock
+
+# Python-Type-checker tools
+.mypy_cache/
+.pytest_cache/
+.pyre/
+
+# Docker (if added later)
+docker/*.pid
+docker/*.log
+
+# Node (if you add JS toolchain in future)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+
+# Media & uploads
+media/
+
+# Docker overrides
+docker-compose.override.yml
+test-docker-compose.override.yml
+
+# Temp / test
+TEST.txt

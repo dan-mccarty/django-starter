@@ -1,0 +1,9 @@
+/* Make the file input full width */
+#id_file {
+    width: 100% !important;
+}
+
+/* Make the path input full width */
+#id_path {
+    width: 100% !important;
+}
