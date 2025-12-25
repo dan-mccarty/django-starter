@@ -83,10 +83,19 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # 3rd party
     "rest_framework",
+    "django_vite",
     # custom
     "accounts",
     "api",
 ]
+
+DJANGO_VITE = {
+    "default": {
+        "dev_mode": DEBUG,
+        "dev_server_host": "vite",
+        "dev_server_port": 5173,
+    }
+}
 
 
 MIDDLEWARE = [
