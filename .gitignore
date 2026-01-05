@@ -89,8 +89,13 @@ yarn-error.log
 media/
 
 # Docker overrides
-docker-compose.override.yml
 test-docker-compose.override.yml
 
 # Temp / test
 TEST.txt
+
+# Private notes
+Notes.md
+
+# Certs
+certs/*

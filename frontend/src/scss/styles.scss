@@ -1,0 +1,5 @@
+// Optional overrides BEFORE importing bootstrap
+$primary: #0d6efd;
+$border-radius: 0.5rem;
+
+@import "bootstrap/scss/bootstrap";

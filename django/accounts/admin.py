@@ -2,8 +2,8 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.utils.translation import gettext_lazy as _
 
-from .models import User
-from .services import send_verification_email
+from .models import User, Account
+from .emails import send_verification_email
 
 
 @admin.register(User)
@@ -59,4 +59,11 @@ class UserAdmin(BaseUserAdmin):
         super().save_model(request, obj, form, change)
 
         if is_new and not obj.is_email_verified:
-            send_verification_email(obj, request)
+            send_verification_email(request, obj)
+
+
+@admin.register(Account)
+class AccountAdmin(admin.ModelAdmin):
+    list_display = ("id", "name", "created_at")
+    search_fields = ("name",)
+    ordering = ("-created_at",)

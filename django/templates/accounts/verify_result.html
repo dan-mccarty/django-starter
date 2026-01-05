@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load form_extras %}
+
+{% block title %}
+  Sign up
+{% endblock %}
+
+{% block content %}
+  <div class="container mt-5" style="max-width: 520px;">
+    <h1 class="mb-3">Email verification</h1>
+
+    {% include 'accounts/partials/verify_result.html' %}
+
+    <div class="mt-3">
+      {% if success %}
+        <a class="btn btn-primary" href="{% url 'accounts:login' %}">Login</a>
+      {% else %}
+        <a class="btn btn-outline-secondary" href="{% url 'accounts:login' %}">Back to login</a>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

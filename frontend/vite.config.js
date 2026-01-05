@@ -2,13 +2,11 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
   build: {
-    manifest: true,
-    outDir: "../django/static/vite",
+    manifest: "manifest.json",
+    outDir: "/django/static/vite/",
     emptyOutDir: true,
     rollupOptions: {
-      input: {
-        main: "src/js/main.js",
-      },
+      input: "src/main.js",
     },
   },
   server: {

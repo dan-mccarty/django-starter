@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 set -e
 
+PROJECT_NAME=DJANGO_STARTER
 APP_USER=prod_user
-APP_DIR=/home/$APP_USER/DocuPath
+APP_DIR=/home/$APP_USER/$PROJECT_NAME
 DEPLOY_DIR=/home/$APP_USER/deploy
 
 echo "🔧 Bootstrapping server..."

@@ -1,8 +1,8 @@
 [
     {
         "id": "deploy",
-        "execute-command": "/home/prod_user/DocuPath/infra/deploy.sh",
-        "command-working-directory": "/home/prod_user/DocuPath",
+        "execute-command": "/home/prod_user/DJANGO_STARTER/infrastructure/deploy.sh",
+        "command-working-directory": "/home/prod_user/DJANGO_STARTER",
         "response-message": "Deploy started",
         "trigger-rule": {
             "match": {

@@ -1,7 +1,7 @@
 # =========================
 # Variables
 # =========================
-COMPOSE=docker-compose
+COMPOSE=docker compose
 SERVICE=web
 MANAGE=python manage.py
 DOMAIN=${DOMAIN:-localhost}
@@ -103,7 +103,7 @@ install_requirements:
 	pip install -r django/requirements.txt
 
 freeze:
-	pip freeze > repo/requirements.txt
+	pip freeze > django/requirements.txt
 
 
 
@@ -120,11 +120,25 @@ clean:
 # =========================
 # Zero-Downtime Update
 # =========================
+# update:
+# 	$(COMPOSE) pull
+# 	$(COMPOSE) build $(SERVICE)
+# 	$(COMPOSE) up -d --no-deps $(SERVICE)
+# 	# $(COMPOSE) up -d db
+# 	# wait for postgres to accept connections
+# 	# $(COMPOSE) exec db sh -lc 'until pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB; do sleep 1; done'
+# 	# Run migrations and collect static automatically
+# 	$(COMPOSE) exec $(SERVICE) $(MANAGE) migrate
+# 	$(COMPOSE) exec $(SERVICE) $(MANAGE) collectstatic --noinput
+# 	# Reload Gunicorn gracefully
+# 	$(COMPOSE) exec $(SERVICE) pkill -HUP gunicorn || true
+
+
 update:
+	$(COMPOSE) down
 	$(COMPOSE) pull
-	$(COMPOSE) build $(SERVICE)
-	$(COMPOSE) up -d --no-deps $(SERVICE)
-	# Run migrations and collect static automatically
+	$(COMPOSE) up -d --build --remove-orphans
+	$(COMPOSE) exec db sh -lc 'until pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB; do sleep 1; done'
 	$(COMPOSE) exec $(SERVICE) $(MANAGE) migrate
 	$(COMPOSE) exec $(SERVICE) $(MANAGE) collectstatic --noinput
 	# Reload Gunicorn gracefully

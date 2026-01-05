@@ -1,0 +1,11 @@
+{% if success %}
+  <div class="alert alert-success" role="alert">
+    <strong>Email verified.</strong> Your account is now active.
+  </div>
+{% else %}
+  <div class="alert alert-danger" role="alert">
+    <strong>Verification failed.</strong>
+    This link is invalid or has expired.
+    <a class="alert-link" href="{% url 'accounts:resend-verification' %}">Request a new verification email</a>.
+  </div>
+{% endif %}
